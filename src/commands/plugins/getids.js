@@ -1,5 +1,7 @@
 // 'use strict';
 
+const { botT } = require("../../settings/app")
+
 // const app = require('../../settings/app')
 
 // app.bot.onText(/^\!chatid|^\/chatid/, function (msg) {
@@ -45,6 +47,6 @@
 //     }
 // });
 
-appT.boT.hears(/^\!getid|^\/getid|^\.getid/, function(ctx) {
+botT.appT.hears(/^\!getid|^\/getid|^\.getid/, function(ctx) {
     ctx.reply('hola')
 })
