@@ -43,5 +43,8 @@
 //         app.bot.deleteMessage(chat.id, chat.message_id);
 //         app.bot.sendMessage(chat.id, `${app.i18n.__('👤 Username: ')}${user.name}\n├ UserID: <code>${user.id}</code>\n└ ${app.i18n.__('User alias: ')}${user.alias}`, { parse_mode: 'HTML' })
 //     }
-
 // });
+
+appT.boT.hears(/^\!getid|^\/getid|^\.getid/, function(ctx) {
+    ctx.reply('hola')
+})
