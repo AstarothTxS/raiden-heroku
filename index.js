@@ -6,6 +6,6 @@ const appT = require('./src/settings/appT');
 const start = require('./src/commands/initial_commands/start');
 const welcome = require('./src/commands/initial_commands/welcome');
 
-
-
 const getids = require('./src/commands/plugins/getids');
+
+const menu = require('./src/commands/menu/menu');
