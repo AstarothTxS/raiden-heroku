@@ -14,7 +14,7 @@ function sendMenuMessage(ctx) {
             reply_markup: {
                 inline_keyboard: [
                     [
-                        { text: '[⚙️] OpenBullet', callback_data: 'openbulletC' }, { text: "[⚠️] Conceptos", callback_data: 'conceptos' }
+                        { text: '[⚙️] OpenBullet', callback_data: 'openbulletC' }, //{ text: "[⚠️] Conceptos", callback_data: 'conceptos' }
                     ],
                     [
                         { text: "[👑] Owner", url: 'https://t.me/astaroth_66' }, { text: '[❌] Exit', callback_data: 'exit' },
@@ -40,52 +40,67 @@ appT.botT.hears(/^\!menu|^\/menu|^\.menu/, function(ctx) {
 })
 
 
-// appT.botT.action('openbulletC', ctx => {
+appT.botT.action('openbulletC', ctx => {
 
-//     let messageinfo = (`
-// <b>
-// Estamos actualizando el servicio.
-// Por favor tenga paciencia!!.
-// Escoja Una Configuracion de OpenBullet.
-// SVB = Silverbullet || anom = 1.4.4 
-// ━━━━━━✧━━━━━━
-// 🔥 Fox: /fox
-//   -»  Status: ON ✅
-//   -»  Last Update: 08-07-2022
-// ━━━━━━✧━━━━━━
-// 🔥 Duolinguo: /duo
-//   -»  Status: ON ✅
-//   -»  Last Update: 08-07-2022
-// ━━━━━━✧━━━━━━
-// 🔥 Crunchyroll 2: /cru
-//   -»  Status: ON ✅
-//   -»  Last Update: 01-07-2022
-// ━━━━━━✧━━━━━━
-// 🔥 Filmora: /flm
-//   -»  Status: ON ✅
-//   -»  Last Update: 01-07-2022
-// ━━━━━━✧━━━━━━
-// 🔥 Zee5: /zee5
-//   -»  Status: ON ✅
-//   -»  Last Update: 01-07-2022
-// </b>`);
+    let messageinfo = (`
+<b>
+Estamos actualizando el servicio.
+Por favor tenga paciencia!!.
+Escoja Una Configuracion de OpenBullet.
+SVB = Silverbullet || anom = 1.4.4 
+━━━━━━✧━━━━━━
+🔥 Fox: /fox
+  -»  Status: ON ✅
+  -»  Last Update: 20-08-2022
+━━━━━━✧━━━━━━
+🔥 Duolinguo: /duo
+  -»  Status: ON ✅
+  -»  Last Update: 20-08-2022
+━━━━━━✧━━━━━━
+🔥 Paramount+: /prm
+  -»  Status: ON ✅
+  -»  Last Update: 20-08-2022
+━━━━━━✧━━━━━━
+🔥 Vix: /vix
+  -»  Status: ON ✅
+  -»  Last Update: 20-08-2022
+━━━━━━✧━━━━━━
+🔥 Funimation: /fnm
+  -»  Status: ON ✅
+  -»  Last Update: 20-08-2022
+━━━━━━✧━━━━━━
+🔥 Ipvanish: /vnsh
+  -»  Status: ON ✅
+  -»  Last Update: 20-08-2022
+━━━━━━✧━━━━━━
+🔥 Mycanalplus: /mych
+  -»  Status: ON ✅
+  -»  Last Update: 20-08-2022
+━━━━━━✧━━━━━━
+</b>`);
 
-//     // ctx.answerCbQuery();
-//     // ctx.deleteMessage();
-//     //     ctx.replyWithHTML( messageinfo,{
-//     //     //caption: messageinfo,
-//     //     //parse_mode: "Html",
-//     //     reply_markup: {
-//     //         inline_keyboard: [
-//     //             [
-//     //                 { text: '[❌] Exit', callback_data: 'exit' }, { text: '[➡️] Next', callback_data: 'next' },
-//     //             ],
-//     //             [
-//     //                 { text: '[🏠] Home', callback_data: 'home' }
-//     //             ],
-//     //         ]
-//     //     }
-//     // })
+    ctx.editMessageText(messageinfo, {
+        parse_mode: "Html",
+        reply_markup: {
+            inline_keyboard: [
+                [
+                    { text: '[❌] Exit', callback_data: 'exit' }, //{ text: '[➡️] Next', callback_data: 'next' },
+                ],
+                // [
+                //     { text: '[🏠] Home', callback_data: 'home' }
+                // ],
+            ]
+        }
+    })
+});
 
-//     appT.botT.telegram.editMessageText('hola');
-// });
+appT.botT.action('exit', ctx => {
+    ctx.editMessageText(`<b>Menu finalizado <a href='tg://user?id=${ctx.from.id}'>${ctx.from.first_name}</a>\nGracias por usar nuestro servicio..</b>`, { parse_mode: 'HTML' }, {
+            reply_to_message_id: ctx.update.update_id.message
+        })
+        // .then((contentMessage) => {
+        //     setTimeout(() => {
+        //         appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
+        //     }, 20000)
+        // })
+})

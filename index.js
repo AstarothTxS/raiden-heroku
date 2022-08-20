@@ -9,3 +9,4 @@ const welcome = require('./src/commands/initial_commands/welcome');
 const getids = require('./src/commands/plugins/getids');
 
 const menu = require('./src/commands/menu/menu');
+const openbulletC = require('./src/commands/menu/openbulletC/openbulletCj');
