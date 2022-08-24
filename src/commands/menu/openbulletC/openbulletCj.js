@@ -12,7 +12,7 @@ appT.botT.command('/fox', (ctx) => {
         ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs/FOX ⛧𝓐𝓼𝓽𝓪𝓻𝓸𝓽𝓱⛧.anom', filename: 'FOX ⛧𝓐𝓼𝓽𝓪𝓻𝓸𝓽𝓱⛧.anom' }, { caption: 'Proxys free.\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
             setTimeout(() => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
-            }, 10000)
+            }, 30000)
         })
         appT.botT.telegram.sendMessage(idlogs, 'fox usado por el usuario: ' +
             ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
@@ -30,7 +30,7 @@ appT.botT.command('/duo', (ctx) => {
         ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs/Duolingo.anom', filename: 'Duolinguo.anom' }, { caption: 'Proxys free.\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
             setTimeout(() => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
-            }, 10000)
+            }, 30000)
         })
         appT.botT.telegram.sendMessage(idlogs, 'duolinguo usado por el usuario: ' +
             ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
@@ -48,7 +48,7 @@ appT.botT.command('/prm', (ctx) => {
         ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs/paramount+😈Thelokojo04.08.anom', filename: 'paramount+04.08😈Thelokojo.anom' }, { caption: 'Proxys free. De paga Mejor\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
             setTimeout(() => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
-            }, 10000)
+            }, 30000)
         })
         appT.botT.telegram.sendMessage(idlogs, 'paramount usado por el usuario: ' +
             ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
@@ -66,7 +66,7 @@ appT.botT.command('/vix', (ctx) => {
         ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs/vix.anom', filename: 'vix😈Thelokojo.anom' }, { caption: 'Proxys free. De paga Mejor\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
             setTimeout(() => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
-            }, 10000)
+            }, 30000)
         })
         appT.botT.telegram.sendMessage(idlogs, 'vix usado por el usuario: ' +
             ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
@@ -84,7 +84,7 @@ appT.botT.command('/fnm', (ctx) => {
         ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs/Funimation😈Thelokojo.anom', filename: 'funimation😈Thelokojo.anom' }, { caption: 'Proxys free. De paga Mejor\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
             setTimeout(() => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
-            }, 10000)
+            }, 30000)
         })
         appT.botT.telegram.sendMessage(idlogs, 'funimation usado por el usuario: ' +
             ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
@@ -102,7 +102,7 @@ appT.botT.command('/vnsh', (ctx) => {
         ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs/Ipvanish😈Thelokojo.anom', filename: 'ipvanish😈Thelokojo.anom' }, { caption: 'Proxys free. De paga Mejor\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
             setTimeout(() => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
-            }, 10000)
+            }, 30000)
         })
         appT.botT.telegram.sendMessage(idlogs, 'funimation usado por el usuario: ' +
             ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
@@ -120,7 +120,7 @@ appT.botT.command('/mych', (ctx) => {
         ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs/MYCANALPLUS😈Thelokojo.anom', filename: 'mycanalplus😈Thelokojo.anom' }, { caption: 'Proxys free. De paga Mejor\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
             setTimeout(() => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
-            }, 10000)
+            }, 30000)
         })
         appT.botT.telegram.sendMessage(idlogs, 'mychanel usado por el usuario: ' +
             ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
@@ -138,7 +138,7 @@ appT.botT.command('/tnl', (ctx) => {
         ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs/TunnelBear v2 (FULL CAPTURA).svb', filename: 'TunnelBear(FULL CAPTURA).svb' }, { caption: 'Proxys free. De paga Mejor\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
             setTimeout(() => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
-            }, 10000)
+            }, 30000)
         })
         appT.botT.telegram.sendMessage(idlogs, 'TunellBear usado por el usuario: ' +
             ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
