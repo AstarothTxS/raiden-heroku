@@ -122,7 +122,7 @@ appT.botT.command('/mych', (ctx) => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
             }, 10000)
         })
-        appT.botT.telegram.sendMessage(idlogs, 'funimation usado por el usuario: ' +
+        appT.botT.telegram.sendMessage(idlogs, 'mychanel usado por el usuario: ' +
             ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
     } else {
         ctx.replyWithHTML('<b>Usted no tiene permiso para este comando, Comuniquese con el Owner ⛧𝓐𝓼𝓽𝓪𝓻𝓸𝓽𝓱⛧ </b>', {
@@ -140,7 +140,7 @@ appT.botT.command('/tnl', (ctx) => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
             }, 10000)
         })
-        appT.botT.telegram.sendMessage(idlogs, 'funimation usado por el usuario: ' +
+        appT.botT.telegram.sendMessage(idlogs, 'TunellBear usado por el usuario: ' +
             ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
     } else {
         ctx.replyWithHTML('<b>Usted no tiene permiso para este comando, Comuniquese con el Owner ⛧𝓐𝓼𝓽𝓪𝓻𝓸𝓽𝓱⛧ </b>', {
