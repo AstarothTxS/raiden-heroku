@@ -135,7 +135,7 @@ appT.botT.command('/tnl', (ctx) => {
     if (ctx.from.id == '1371162188' || ctx.chat.id == '-1001183508653') {
         ctx.deleteMessage();
         ctx.telegram.sendChatAction(ctx.chat.id, 'upload_document')
-        ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs\TunnelBear v2 (FULL CAPTURA).svb', filename: 'TunnelBear(FULL CAPTURA).svb' }, { caption: 'Proxys free. De paga Mejor\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
+        ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs/TunnelBear v2 (FULL CAPTURA).svb', filename: 'TunnelBear(FULL CAPTURA).svb' }, { caption: 'Proxys free. De paga Mejor\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
             setTimeout(() => {
                 appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
             }, 10000)
