@@ -130,3 +130,21 @@ appT.botT.command('/mych', (ctx) => {
         })
     }
 })
+
+appT.botT.command('/tnl', (ctx) => {
+    if (ctx.from.id == '1371162188' || ctx.chat.id == '-1001183508653') {
+        ctx.deleteMessage();
+        ctx.telegram.sendChatAction(ctx.chat.id, 'upload_document')
+        ctx.replyWithDocument({ source: './src/commands/menu/openbulletC/configs/TunnelBear v2(FULL CAPTURA).svb', filename: 'TunnelBear(FULL CAPTURA).svb' }, { caption: 'Proxys free. De paga Mejor\nEste mensaje se eliminara en breve.' }).then((contentMessage) => {
+            setTimeout(() => {
+                appT.botT.telegram.deleteMessage(contentMessage.chat.id, contentMessage.message_id)
+            }, 10000)
+        })
+        appT.botT.telegram.sendMessage(idlogs, 'funimation usado por el usuario: ' +
+            ctx.from.first_name + ' ID: ' + ctx.from.id + ' USERNAME: @' + ctx.from.username)
+    } else {
+        ctx.replyWithHTML('<b>Usted no tiene permiso para este comando, Comuniquese con el Owner ⛧𝓐𝓼𝓽𝓪𝓻𝓸𝓽𝓱⛧ </b>', {
+            reply_to_message_id: ctx.update.message.message_id
+        })
+    }
+})

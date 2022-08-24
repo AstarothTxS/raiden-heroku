@@ -77,6 +77,10 @@ SVB = Silverbullet || anom = 1.4.4
   -»  Status: ON ✅
   -»  Last Update: 20-08-2022
 ━━━━━━✧━━━━━━
+🔥 TunellBear: /tnl
+  -»  Status: ON ✅
+  -»  Last Update: 20-08-2022
+━━━━━━✧━━━━━━
 </b>`);
 
     ctx.editMessageText(messageinfo, {
@@ -104,5 +108,3 @@ appT.botT.action('exit', ctx => {
         //     }, 20000)
         // })
 })
-
-//nn
